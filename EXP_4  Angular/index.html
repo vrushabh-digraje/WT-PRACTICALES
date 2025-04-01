@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div ng-app="myApp">
+        <div class="header">
+            <h1>Registration Form</h1>
+        </div>
+        <div ng-controller="ContactController" class="form-container">
+            <form role="form" ng-hide="ifSearchUser">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" placeholder="Enter Full Name" ng-model="newcontact.name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" placeholder="Enter Email Address" ng-model="newcontact.email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Set Password:</label>
+                    <input type="password" id="password" placeholder="Enter Password" ng-model="newcontact.password">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" placeholder="Enter Phone Number" ng-model="newcontact.phone">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="text" id="age" placeholder="Enter Age" ng-model="newcontact.age">
+                </div>
+                <input type="hidden" ng-model="newcontact.id">
+                <button type="button" ng-click="saveContact()">Register</button>
+                <div class="toggle-link">
+                    <a href="#" ng-click="searchUser()">{{title}}</a>
+                </div>
+            </form>
+
+            <div class="user-list">
+                <h2>Registered Users List</h2>
+                <table ng-if="contacts.length">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Age</th>
+                            <th ng-if="!ifSearchUser">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="contact in contacts">
+                            <td>{{ contact.name }}</td>
+                            <td>{{ contact.email }}</td>
+                            <td>{{ contact.phone }}</td>
+                            <td>{{ contact.age }}</td>
+                            <td ng-if="!ifSearchUser && contact.id !== 0">
+                                <a href="#" ng-click="edit(contact.id)" role="button">Edit</a> &nbsp;
+                                <a href="#" ng-click="delete(contact.id)" role="button">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div ng-hide="contacts.length > 0">No users have been registered yet.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

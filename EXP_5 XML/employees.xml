@@ -1,0 +1,21 @@
+<!DOCTYPE employees SYSTEM "employees.dtd">
+<employees>
+    <employee>
+        <name>Vrushabh Digraje</name>
+        <emp_id>201</emp_id>
+        <department>Finance</department>
+        <salary>85000</salary>
+    </employee>
+    <employee>
+        <name>Sneha Gupta</name>
+        <emp_id>202</emp_id>
+        <department>Marketing</department>
+        <salary>70000</salary>
+    </employee>
+    <employee>
+        <name>Vikram Singh</name>
+        <emp_id>203</emp_id>
+        <department>Operations</department>
+        <salary>72000</salary>
+    </employee>
+</employees>
